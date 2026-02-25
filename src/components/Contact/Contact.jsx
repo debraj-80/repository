@@ -15,28 +15,20 @@ const Contact = () => {
         "service_aio4dyu",
         "template_3a6fq9s",
         form.current,
-        "RiuhhtTL5x42Zyv56w"
+        "iuhhtTL5x42Zyv56w"
       )
       .then(
-        () => {
-          form.current.reset();
-          toast.success("Message sent successfully! ✅", {
-            position: "top-right",
-            autoClose: 3000,
-            theme: "dark",
-          });
-        },
-        (error) => {
-          console.error(error);
-          toast.error("Failed to send message. Please try again.", {
-            position: "top-right",
-            autoClose: 3000,
-            theme: "dark",
-          });
-        }
-      );
-  };
-
+  (result) => {
+    console.log("SUCCESS:", result);
+    form.current.reset();
+  },
+  (error) => {
+    console.log("FULL ERROR:", error);
+    console.log("STATUS:", error.status);
+    console.log("TEXT:", error.text);
+  }
+);
+  }
   return (
     <section
       id="contact"
